@@ -1,6 +1,6 @@
 from django.conf.urls import include, url
 from django.contrib import admin
-from main.views import exam, wechat_main
+from main.views import exam, weixin_main
 
 
 urlpatterns = [
@@ -10,5 +10,5 @@ urlpatterns = [
 
     url(r'^admin/', include(admin.site.urls)),
 	url(r'^exam/', exam),
-	url(r'^wechat/', wechat_main),
+	url(r'^wechat/', weixin_main),
 ]
