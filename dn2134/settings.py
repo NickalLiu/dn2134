@@ -55,7 +55,7 @@ ROOT_URLCONF = 'dn2134.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': os.path.join(BASE_DIR, '/templates/'),
+        'DIRS': [],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -67,6 +67,10 @@ TEMPLATES = [
         },
     },
 ]
+
+TEMPLATE_DIRS = (
+    '/opt/dn2134/templates',
+)
 
 WSGI_APPLICATION = 'dn2134.wsgi.application'
 
