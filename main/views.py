@@ -23,7 +23,7 @@ wechat_instance = WechatBasic(
 
 @csrf_exempt
 def exam(request):
-    return render_to_response(request, 'index.html')
+    return render_to_response(request, 'test.html')
 
 @csrf_exempt
 def weixin_main(request):
