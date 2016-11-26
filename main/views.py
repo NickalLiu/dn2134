@@ -3,7 +3,7 @@ from __future__ import unicode_literals
  
 from django.http.response import HttpResponse, HttpResponseBadRequest
 from django.views.decorators.csrf import csrf_exempt
-from django.shortcuts import render_to_response
+from django.shortcuts import render
  
 from wechat_sdk import WechatBasic
 from wechat_sdk.exceptions import ParseError
@@ -23,7 +23,11 @@ wechat_instance = WechatBasic(
 
 @csrf_exempt
 def exam(request):
-    return render_to_response(request, 'test.html')
+    return render(request, 'test.html')
+
+@csrf_exempt
+def index(request):
+    return HttpResponse("wlabdk")
 
 @csrf_exempt
 def weixin_main(request):
@@ -64,7 +68,7 @@ def weixin_main(request):
             reply_text = '<a href="http://www.ziqiangxuetang.com">点击进入【全题复习】</a>'
 
         elif content == '考试':
-            reply_text = '<a href="http://111.202.44.94/exam/">点击进入【模拟测试】</a>'
+            reply_text = '<a href="http://www.lllzone.com/exam/">点击进入【模拟测试】</a>'
 
         else :
             reply_text = '回复内容无效，请重新输入。'
