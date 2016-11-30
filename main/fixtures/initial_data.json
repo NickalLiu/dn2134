@@ -1,0 +1,20 @@
+﻿[
+    {
+        "pk": "1",
+        "model": "blog.BlogPost",
+        "fields": {
+            "title": "bbb",
+            "body": "Hello world",
+            "timestamp": "2013-03-03 08:38"
+        }
+    },
+    {
+        "pk": "2",
+        "model": "blog.BlogPost",
+        "fields": {
+            "title": "aaa",
+            "body": "我爱python",
+            "timestamp": "2013-03-03 10:38"
+        }
+    }
+]
