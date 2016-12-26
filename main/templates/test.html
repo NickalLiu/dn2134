@@ -8,19 +8,49 @@
   <script src="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.js"></script>
 </head>
 <body>
-<div data-role="page">
+<div data-role="page" id="index">
 
   <div data-role="header">
-    <h1>欢迎访问我的主页</h1>
+    <h1>考试系统</h1>
   </div>
 
   <div data-role="content">
-    <p>我是一名移动开发者！</p>
+    <a href="#rev" data-role="button" id="btn_rev">真题复习</a>
+    <a href="#test" data-role="button" id="btn_test">模拟测试</a>
   </div>
+</div>
 
-  <div data-role="footer">
-    <h1>页脚文本</h1>
+<div date-role="page" id="rev">
+  <div data-role="header" data-position="fixed" data-fullscreen="true">
+    <a href="#index" data-role="button">首页</a>
+    <h1>真题复习</h1>
   </div>
+  <div data-role="content" id="rev_data">
+  </div>
+</div>
+
+<div date-role="page" id="test">
 
 </div>
-</body></html>
+</body>
+<script type="application/javascript">
+  var str = {"qst":"what's the number?","a":"1","b":"2","c":"3","d":"4"};
+
+  function rev(i,str){
+    var html = "";
+    html += '<br><br><form><fieldset data-role="controlgroup">';
+    html += '<legend>'+ i + '.' + str.qst +'：</legend>';
+    html += '<label for="a">'+  str.a +'</label><input type="radio" name="sel" id="a" value="a">';
+    html += '<label for="b">'+  str.b +'</label><input type="radio" name="sel" id="b" value="b">';
+    html += '<label for="c">'+  str.c +'</label><input type="radio" name="sel" id="c" value="c">';
+    html += '<label for="d">'+  str.d +'</label><input type="radio" name="sel" id="d" value="d">';
+    html += '</fieldset></form>';
+    $("#rev_data").append(html);
+  }
+
+  $("#btn_rev").click(function(){
+    for(i=0;i<10;i++)
+    rev(i+1,window.str);
+  });
+</script>
+</html>
