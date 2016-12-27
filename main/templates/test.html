@@ -29,43 +29,17 @@
 </div>
 
 <div date-role="page" id="rev">
-  <div data-role="header" data-fullscreen="true">
+  <div data-role="header" data-position="fixed">
     <a href="#index" data-role="button">首页</a>
-    <h1>真题复习</h1>
+    <h1 style="float: left !important;">真题复习</h1>
+    <select id="slider" data-role="slider" style="float: right !important;" onchange="ChangeEvent();">
+      <option value="false">显示</option>
+      <option value="true">隐藏</option>
+    </select>
   </div>
   <div data-role="main" class="ui-content">
-    <form>
-      <fieldset data-role="controlgroup">
-        <legend>fadsfasdfa</legend>
-        <label for="a1">a</label>
-        <input type="radio" name="sel" id="a1" value="a">
-        <label for="b1">b</label>
-        <input type="radio" name="sel" id="b1" value="b">
-        <label for="c1">c</label>
-        <input type="radio" name="sel" id="c1" value="c">
-      </fieldset>
-    </form>
-    <form>
-      <fieldset data-role="controlgroup">
-        <legend>fadsfasdf2</legend>
-        <label for="a2">a</label>
-        <input type="radio" name="sel" id="a2" value="a">
-        <label for="b2">b</label>
-        <input type="radio" name="sel" id="b2" value="b">
-        <label for="c2">c</label>
-        <input type="radio" name="sel" id="c2" value="c">
-      </fieldset>
-    </form>
-    <form>
-      <fieldset data-role="controlgroup">
-        <legend>fadsfasdf</legend>
-        <label for="a3">a</label>
-        <input type="radio" name="sel" id="a3" value="a">
-        <label for="b3">b</label>
-        <input type="radio" name="sel" id="b3" value="b">
-        <label for="c3">c</label>
-        <input type="radio" name="sel" id="c3" value="c">
-      </fieldset>
+    <form id="rev_data">
+
     </form>
   </div>
 </div>
@@ -73,26 +47,29 @@
 <div date-role="page" id="test">
 
 </div>
+<div id="panl" style="display: none;">
+  <fieldset data-role="controlgroup">
+    <legend>fadsfasdfa</legend>
+    <label for="a">a</label>
+    <input type="test" name="sel" id="a" value="a">
+    <label for="b">b</label>
+    <input type="radio" name="sel" id="b" value="b">
+    <label for="c">c</label>
+    <input type="radio" name="sel" id="c" value="c">
+  </fieldset>
+</div>
 </body>
 <script type="application/javascript">
   var str = {"qst":"what's the number?","a":"1","b":"2","c":"3","d":"4"};
 
   function rev(i,str){
-    var html = "";
-    html += '<fieldset data-role="controlgroup">';
-    html += '<legend>'+ i + '.' + str.qst +'：</legend>';
-    html += '<label for="a">'+  str.a +'</label><input type="radio" name="sel" id="a" value="a">';
-    html += '<label for="b">'+  str.b +'</label><input type="radio" name="sel" id="b" value="b">';
-    html += '<label for="c">'+  str.c +'</label><input type="radio" name="sel" id="c" value="c">';
-    html += '<label for="d">'+  str.d +'</label><input type="radio" name="sel" id="d" value="d">';
-    html += '</fieldset>';
     $("#rev_data").append(html);
   }
 
-  /*$("#btn_rev").click(function(){
+  $("#btn_rev").click(function(){
     $("#rev_data").html("");
     for(i=0;i<10;i++)
-      rev(i+1,window.str);
-  });*/
+      $("#rev_data").append($("#panl").html())
+  });
 </script>
 </html>
