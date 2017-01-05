@@ -26,7 +26,8 @@ wechat_instance = WechatBasic(
 def exam(request):
     fs = file(r"/opt/dn2134/s.jo")
     jsonBuf = json.load(fs)
-    return render_to_response('test.html', {"data" : jsonBuf})
+    data = jsonBuf["questions"][1]
+    return render_to_response('test.html', {"data" : data})
 
 @csrf_exempt
 def index(request):
