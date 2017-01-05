@@ -1,14 +1,15 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
- 
+
 from django.http.response import HttpResponse, HttpResponseBadRequest
 from django.views.decorators.csrf import csrf_exempt
-from django.shortcuts import render
+from django.shortcuts import render, render_to_response
  
 from wechat_sdk import WechatBasic
 from wechat_sdk.exceptions import ParseError
 from wechat_sdk.messages import TextMessage
- 
+
+import json
  
 WECHAT_TOKEN = '09231211'
 AppID = 'wx693c4716eeb8db16'
@@ -23,7 +24,9 @@ wechat_instance = WechatBasic(
 
 @csrf_exempt
 def exam(request):
-    return render(request, 'test.html')
+    fs = file(r"/opt/dn2134/s.jo")
+    jsonBuf = json.load(fs)
+    return render_to_response('test.html', {"data" : jsonBuf})
 
 @csrf_exempt
 def index(request):
