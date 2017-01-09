@@ -24,8 +24,7 @@ wechat_instance = WechatBasic(
 
 @csrf_exempt
 def exam(request):
-    #fs = file(r"/opt/dn2134/exam.json")
-    fs = file(r"C:/Users/Administrator/Desktop/git/dn2134/exam.json")
+    fs = file(r"/opt/dn2134/exam.json")
     data = json.load(fs)
     return render_to_response('test.html', {"qst" : data["questions"], "ans" : data["answers"]})
 
