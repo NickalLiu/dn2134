@@ -20,9 +20,9 @@
 <body>
 	{% for q in qst %}
 		{% if forloop.counter|divisibleby:2 %}
-		<div id={{forloop.counter}} class="double">
+		<div id={{forloop.counter}} class="double" name="unsel">
 		{% else %}
-		<div id={{forloop.counter}}>
+		<div id={{forloop.counter}} name="unsel">
 		{% endif %}
 		<label>{{forloop.counter}}.{{q.qst}}</label>
 		<ul>
@@ -35,5 +35,21 @@
 	{% endfor %}
 </body>
 <script type="application/javascript">
+	var ans = "{{ans}}";
+	ans = ans.replace(/&quot;/g, "");
+	ans = ans.splte(',');
+	$(document).on("click",'li',function(){
+		var index = $(this).closest("div").id;
+		var sel = window.sel_relation[$(this).index()];
+		if($(this).closest("div").attr("name") == "unsel"){
+			if(sel == window.ans[index].slice(-2,-1)){
+				$(this).css("background","green");
+			}
+			else{
+				$(this).css("background","green");
+			}
+		}
+		$(this).closest("div").attr("name", "sel");
+	})
 </script>
 </html>
