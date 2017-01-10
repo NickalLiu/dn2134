@@ -19,23 +19,23 @@
 	}
 	label{
 		color: #ffffcc;
+		font-size: 16px;
 	}
-	li{
-		color: #ffffff;
-		margin: 5px 0px;
-		list-style: none;
+	button{
+		width: 100%;
+		height: 30px;
+		text-align: left;
+		padding-left: 5px;
 	}
 </style>
 <body>
 	{%for i in qst%}
-	<div id={{forloop.counter}} name="unsel">
+	<div id={{forloop.counter}} name="unsel" align="left">
 		<label>{{forloop.counter}}. {{i.qst}}</label>
-		<ul>
-			<li name="A">A. {{i.A}}</li>
-			<li name="B">B. {{i.B}}</li>
-			<li name="C">C. {{i.C}}</li>
-			<li name="D">D. {{i.D}}</li>
-		</ul>
+		<button name="A">A. {{i.A}}</button>
+		<button name="B">B. {{i.B}}</button>
+		<button name="C">C. {{i.C}}</button>
+		<button name="D">D. {{i.D}}</button>
 	</div>
 	</br>
 	{% endfor %}
@@ -46,7 +46,7 @@
 	var s = "{{ans}}";
 	s = s.replace(/&quot;/g, "").split(',');
 	//点击选项，确定题目编号和选项字母
-	$(document).on("click",'li',function(){
+	$(document).on("click",'button',function(){
 		var index_qst = this.closest("div").id;
 		var index_sel = window.SEL_RELATION[$(this).index()];
 		if($(this).closest("div").attr("name") == "unsel"){
@@ -55,7 +55,7 @@
 			}
 			else{
 				$(this).css("background", "#ff6600");
-				$(this).closest("ul").find("[name=" + window.s[index_qst].slice(-2,-1) + "]").css("background", "#33cc33");
+				$(this).closest("div").find("[name=" + window.s[index_qst].slice(-2,-1) + "]").css("background", "#33cc33");
 			}
 		}
 		$(this).closest("div").attr("name" , "sel");
